@@ -1,5 +1,6 @@
 package com.campusfix.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Category {
     @Column(name = "is_active")
     private boolean active = true;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Complaint> complaints;
 }

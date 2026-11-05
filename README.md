@@ -1,3 +1,8 @@
+Deployment platform:
+Link: https://jeevikrish2403.github.io/CamousFix/
+
+
+
 # 🔧 CampusFix — Campus Complaint & Maintenance Management System
 
 A full-stack Java + React application for managing campus maintenance complaints.

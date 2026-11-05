@@ -61,6 +61,7 @@ public class ComplaintService {
         return mapToResponse(complaint, true);
     }
 
+    @Transactional(readOnly = true)
     public List<ComplaintResponse> getMyComplaints(String userEmail) {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -68,6 +69,7 @@ public class ComplaintService {
                 .stream().map(c -> mapToResponse(c, false)).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<ComplaintResponse> getAssignedComplaints(String userEmail) {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -75,11 +77,13 @@ public class ComplaintService {
                 .stream().map(c -> mapToResponse(c, false)).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<ComplaintResponse> getAllComplaints() {
         return complaintRepository.findAllByOrderByCreatedAtDesc()
                 .stream().map(c -> mapToResponse(c, false)).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public ComplaintResponse getById(Long id) {
         Complaint c = complaintRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Complaint not found: " + id));

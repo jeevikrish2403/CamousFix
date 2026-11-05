@@ -42,6 +42,7 @@ public class User {
     @Column(name = "is_active")
     private boolean active = true;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @OneToMany(mappedBy = "submittedBy", fetch = FetchType.LAZY)
     private List<Complaint> complaints;
 
