@@ -3,8 +3,6 @@ name: Deploy Frontend to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'frontend/**'
 
 permissions:
   contents: read
@@ -41,7 +39,7 @@ jobs:
         run: npm run build
         working-directory: frontend
         env:
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_API_URL: https://unpadded-jackal-tubeless.ngrok-free.dev/api
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
