@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
@@ -20,7 +20,7 @@ import WorkComplaint from './pages/technician/WorkComplaint';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Toaster position="top-right" />
         <Routes>
@@ -62,7 +62,7 @@ export default function App() {
             <PrivateRoute roles={['TECHNICIAN']}><WorkComplaint /></PrivateRoute>
           } />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
