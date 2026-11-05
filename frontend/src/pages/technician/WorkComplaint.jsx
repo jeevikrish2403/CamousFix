@@ -72,7 +72,7 @@ export default function WorkComplaint() {
               <strong>Description:</strong><p>{complaint.description}</p>
             </div>
             {complaint.imageUrl && (
-              <img src={`http://localhost:8080${complaint.imageUrl}`}
+              <img src={`${import.meta.env.VITE_API_URL?.replace('/api','')||'http://localhost:8080'}${complaint.imageUrl}`}
                 alt="complaint" className="complaint-image" />
             )}
           </div>

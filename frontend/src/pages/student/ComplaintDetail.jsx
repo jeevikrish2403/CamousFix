@@ -99,7 +99,7 @@ export default function ComplaintDetail() {
             {complaint.imageUrl && (
               <div style={{ marginTop: '16px' }}>
                 <strong>Attached Image:</strong>
-                <img src={`http://localhost:8080${complaint.imageUrl}`}
+                <img src={`${import.meta.env.VITE_API_URL?.replace('/api','')||'http://localhost:8080'}${complaint.imageUrl}`}
                   alt="complaint" className="complaint-image" />
               </div>
             )}
