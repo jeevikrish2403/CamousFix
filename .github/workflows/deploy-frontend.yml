@@ -36,10 +36,11 @@ jobs:
         working-directory: frontend
 
       - name: Build
-        run: npm run build
+        run: npx vite build
         working-directory: frontend
         env:
           VITE_API_URL: https://unpadded-jackal-tubeless.ngrok-free.dev/api
+          NODE_ENV: production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
